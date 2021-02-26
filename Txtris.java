@@ -1,7 +1,7 @@
 /* 
- * Harjoitustyˆ 2
+ * Harjoitusty√∂ 2
  * Txtris-peli
- * Jenni Mansikka-aho
+ * Jenni Eloranta
  * Luotu: 21.1.2013
  * Muokattu: 26.1.2013
  * 
@@ -9,20 +9,20 @@
 
 public class Txtris {
 
-   /* Metodi t‰ytt‰‰ kaksiulotteisen taulukon t alkiot "kehyst‰en"
-    * ja palauttaa t‰ytetyn taulukon.
+   /* Metodi t√§ytt√§√§ kaksiulotteisen taulukon t alkiot "kehyst√§en"
+    * ja palauttaa t√§ytetyn taulukon.
     */
    public static char[][] taytaTaulukko() {
       // Luodaan taulukko.
       char[][] t = new char[22][12];
 
-      // Katsotaan, ett‰ muistia on varattu.
+      // Katsotaan, ett√§ muistia on varattu.
       if (t != null) {
          // Alustetaan taulukko.
          for (int rivi = 0; rivi < t.length; rivi++) {
             for (int sarake = 0; sarake < t[0].length; sarake++){
-               // Ensimm‰isell‰ ja viimeisell‰ rivill‰ tulostetaan kehysmerkki,
-               // niin myˆs jokaisen rivin alussa ja lopussa.
+               // Ensimm√§isell√§ ja viimeisell√§ rivill√§ tulostetaan kehysmerkki,
+               // niin my√∂s jokaisen rivin alussa ja lopussa.
                if (rivi == 0 || rivi == (t.length -1) || 
                   sarake == 0 || sarake == (t[0].length - 1))
                   t[rivi][sarake] = '.';
@@ -33,12 +33,12 @@ public class Txtris {
       }
       return t;
    }
-   // Metodi piirt‰‰ merkkitaulukkoon m paikkataulukon p asettamiin kohtiin merkit.
+   // Metodi piirt√§√§ merkkitaulukkoon m paikkataulukon p asettamiin kohtiin merkit.
    public static boolean piirraTaulukkoon (char[][] m, int[][] p, char merkki) {
       
       boolean voikoPiirtaa = tutkiPaikkataulukkoa(m, p, false);
-      // Jos kaikki paikkataulukon alkiot lˆytyv‰t merkkitaulukosta,
-      // voidaan piirt‰‰.
+      // Jos kaikki paikkataulukon alkiot l√∂ytyv√§t merkkitaulukosta,
+      // voidaan piirt√§√§.
       if (voikoPiirtaa) {
          for (int i = 0; i < p.length; i++) {
             // Paikan rivi-indeksin arvo.
@@ -51,7 +51,7 @@ public class Txtris {
       }
       return voikoPiirtaa;
    }
-   // Metodi tulostaa taulukon alkiot n‰ytˆlle.
+   // Metodi tulostaa taulukon alkiot n√§yt√∂lle.
    public static void tulostaTaulukko(char[][] t) {
       // Tulostetaan vain, jos taulukolle on varattu muistia.
       if (t != null) {
@@ -64,17 +64,17 @@ public class Txtris {
       }
    }
    // Metodi tutkii ovatko paikkataulukon p alkiot taulukossa t.
-   // Lis‰tty parametri, joka ilmaisee tutkitaanko v‰lilyˆntien olemassaolo.
+   // Lis√§tty parametri, joka ilmaisee tutkitaanko v√§lily√∂ntien olemassaolo.
    public static boolean tutkiPaikkataulukkoa(char[][] taulu, int[][] paikat, boolean valilyonteja) {
       // Alustetaan lippu muistinvarauksen mukaan. Sulut mukan selvyyden vuoksi.
       boolean paikatOK = (taulu != null) && (paikat != null);
        
-      // Tarkastellaan paikat yksi kerrallaan. Silmukka pys‰htyy heti, kun lˆytyy
+      // Tarkastellaan paikat yksi kerrallaan. Silmukka pys√§htyy heti, kun l√∂ytyy
       // kelvoton paikka.
       int i = 0;
       while (paikatOK && i < paikat.length) {
          // Asetetaan paikan indeksiarvot selvyyden vuoksi apumuuttujiin.
-         // Paikkataulukon rivin ensimm‰inen alkio sis‰lt‰‰ paikan rivi-indeksin
+         // Paikkataulukon rivin ensimm√§inen alkio sis√§lt√§√§ paikan rivi-indeksin
          // arvon ja toisessa alkiossa on paikan sarakeindeksin arvo.
          int rivi = paikat[i][0];
          int sarake = paikat[i][1];
@@ -89,23 +89,23 @@ public class Txtris {
       return paikatOK;
    }
    // Metodi tutkii sijaitsevatko indeksipaikat i ja j taulukossa t. 
-   // Valilyonnit-parametri kertoo tutkitaanko myˆs v‰lilyˆntej‰.
+   // Valilyonnit-parametri kertoo tutkitaanko my√∂s v√§lily√∂ntej√§.
    public static boolean tutkiTaulukkoa(int i, int j, char[][] t, boolean valilyonnit) {
       // Paluuarvon muuttuja.
       boolean tulos = false;
       
-      // Tarkistetaan, ett‰ on varattu muistia.
+      // Tarkistetaan, ett√§ on varattu muistia.
       if (t != null) {
-         // Tutkitaan ovatko indeksipaikat sallitulla v‰lill‰.
+         // Tutkitaan ovatko indeksipaikat sallitulla v√§lill√§.
          if (i >= 0 && i <= (t.length - 1) && j >= 0 && j <= (t[0].length - 1))
             tulos = true;
-         // Tarkistetaan, ettei ole muita kuin v‰lilyˆntej‰.
+         // Tarkistetaan, ettei ole muita kuin v√§lily√∂ntej√§.
          if (valilyonnit && t[i][j] != ' ')
             tulos = false;
       }
       return tulos;
    }
-   // Metodi yritt‰‰ siirt‰‰ palikkaa alasp‰in ja palauttaa arvon false,
+   // Metodi yritt√§√§ siirt√§√§ palikkaa alasp√§in ja palauttaa arvon false,
    // jos siirto ei onnistunut.
    public static boolean koneenVuoro(char[][] m, int[][] p, char merkki, int pisteet) {
       // Vanhat paikat talteen
@@ -114,36 +114,36 @@ public class Txtris {
       // Muuttuja kertoo osuiko palikka pohjaan. 
       boolean onkoPohjalla = false;
       
-      // Pyyhit‰‰n palikka vanhasta paikastaan.
+      // Pyyhit√§√§n palikka vanhasta paikastaan.
       piirraTaulukkoon(m, p, HT2Apu.TAUSTA);
       
-      // Siirret‰‰n paikkoja alasp‰in kasvattamalla paikkojen rivi-indeksien arvoja.
+      // Siirret√§√§n paikkoja alasp√§in kasvattamalla paikkojen rivi-indeksien arvoja.
       for (int rivi = 0; rivi < p.length; rivi++)
          p[rivi][0] = p[rivi][0] + 1;
       
-      // Jos uudella paikalla ei ole ruuhkaa, piirret‰‰n siihen palikka.
+      // Jos uudella paikalla ei ole ruuhkaa, piirret√§√§n siihen palikka.
       if (tutkiPaikkataulukkoa(m, p, true)) {
          // Sijoitetaan merkki taulukon paikkoihin.
          piirraTaulukkoon(m, p, merkki);
       }
       else {
          onkoPohjalla = true;
-         // Piirret‰‰n palikka edelliseen sijaintiinsa.
+         // Piirret√§√§n palikka edelliseen sijaintiinsa.
          piirraTaulukkoon(m, vanhatPaikat, merkki);
-         // P‰ivitet‰‰n paikat.
+         // P√§ivitet√§√§n paikat.
          p = vanhatPaikat;
       }
       // Paluuarvo.
       return onkoPohjalla;
    }
-   // Metodi kopioi toisen taulukon alkiot itseens‰.
+   // Metodi kopioi toisen taulukon alkiot itseens√§.
    public static int[][] kopioiTaulukko(int[][] alkup) {
       // Luodaan taulukko.
       int[][] uusi = new int[alkup.length][alkup[0].length];
       
-      // Katsotaan, ett‰ muistia on varattu.
+      // Katsotaan, ett√§ muistia on varattu.
       if (alkup != null) {
-         // K‰yd‰‰n l‰pi taulukko.
+         // K√§yd√§√§n l√§pi taulukko.
          for (int rivi = 0; rivi < alkup.length; rivi++) {
             for (int sarake = 0; sarake < alkup[0].length; sarake++){
                // Kopioidaan taulukon alkiot toiseen.
@@ -153,12 +153,12 @@ public class Txtris {
       }
       return uusi;
    }
-   // Metodi yritt‰‰ siirt‰‰ palikkaa vasemmalle.
+   // Metodi yritt√§√§ siirt√§√§ palikkaa vasemmalle.
    public static int[][] siirraVasempaan(char[][] merkkitaulu, int[][] paikat) {
-      // K‰ytet‰‰n apumuuttujaa
+      // K√§ytet√§√§n apumuuttujaa
       int[][] vanhatPaikat = kopioiTaulukko(paikat);
 
-      // Siirret‰‰n paikat vasemmalle.
+      // Siirret√§√§n paikat vasemmalle.
       for (int rivi = 0; rivi < paikat.length;rivi++) {
          for (int sarake = 1; sarake < paikat[0].length; sarake++){
             paikat[rivi][sarake] = paikat[rivi][sarake] - 1; 
@@ -166,7 +166,7 @@ public class Txtris {
       }
       // Jos palikka ei osu reunaan tms.
       if (tutkiPaikkataulukkoa(merkkitaulu, paikat, true)) {
-         // Hyv‰ksyt‰‰n uudet paikat.
+         // Hyv√§ksyt√§√§n uudet paikat.
          vanhatPaikat = paikat;
       }
       else
@@ -174,12 +174,12 @@ public class Txtris {
 
       return paikat;
    }
-   // Metodi yritt‰‰ siirt‰‰ palikkaa oikealle.
+   // Metodi yritt√§√§ siirt√§√§ palikkaa oikealle.
    public static int[][] siirraOikeaan(char[][] merkkitaulu, int[][] paikat) {
-      // K‰ytet‰‰n apumuuttujaa
+      // K√§ytet√§√§n apumuuttujaa
       int [][] vanhatPaikat = kopioiTaulukko(paikat);
 
-      // Siirret‰‰n paikat oikealle.
+      // Siirret√§√§n paikat oikealle.
       for (int rivi = 0; rivi < paikat.length;rivi++) {
          for (int sarake = 1; sarake < paikat[0].length; sarake++){
             paikat[rivi][sarake] = paikat[rivi][sarake] + 1; 
@@ -187,7 +187,7 @@ public class Txtris {
       }
       // Jos palikka ei osu reunaan tms.
       if (tutkiPaikkataulukkoa(merkkitaulu, paikat, true)) {
-         // Hyv‰ksyt‰‰n siirretyt paikat.
+         // Hyv√§ksyt√§√§n siirretyt paikat.
          vanhatPaikat = paikat;
       }
       else
@@ -195,14 +195,14 @@ public class Txtris {
                
       return paikat;
    }
-   // Metodi yritt‰‰ kiert‰‰ palikkaa.
+   // Metodi yritt√§√§ kiert√§√§ palikkaa.
    public static int[][] kierraPalikkaa(char[][] merkkitaulu, int[][] paikat) {
       // Lasketaan kierretyn palikan paikat.
       int[][] uudetPaikat = HT2Apu.kierraPalikanPaikat(paikat);
 
       // Jos palikka ei osu reunaan tms.
       if (tutkiPaikkataulukkoa(merkkitaulu, uudetPaikat, true)) {
-         // Hyv‰ksyt‰‰n uudet paikat.
+         // Hyv√§ksyt√§√§n uudet paikat.
          paikat = uudetPaikat;
       }
       else
@@ -212,21 +212,21 @@ public class Txtris {
    }
    // Metodi pudottaa palikan.
    public static int[][] pudotaPalikka(char[][] merkkitaulu, int[][] paikat, boolean palikkaIlmassa) {
-      // Silmukkaa l‰pi kunnes palikka on pohjalla.
+      // Silmukkaa l√§pi kunnes palikka on pohjalla.
       while (palikkaIlmassa) {
-         // K‰ytet‰‰n apumuuttujaa.
+         // K√§ytet√§√§n apumuuttujaa.
          int [][] vanhatPaikat = kopioiTaulukko(paikat);
 
-         // Siirret‰‰n paikkoja alasp‰in kasvattamalla paikkojen
+         // Siirret√§√§n paikkoja alasp√§in kasvattamalla paikkojen
          // rivi-indeksien arvoja.
          for (int rivi = 0; rivi < paikat.length; rivi++)
             paikat[rivi][0] = paikat[rivi][0] + 1;
 
          // Jos uusi paikka on varattu, lopetetaan silmukan kierto.
          if (!tutkiPaikkataulukkoa(merkkitaulu, paikat, true)) {
-            // Piirret‰‰n vanhat paikat
+            // Piirret√§√§n vanhat paikat
             piirraTaulukkoon(merkkitaulu, vanhatPaikat, HT2Apu.PALIKKA);
-            // Paikat p‰ivitet‰‰n edelliseen sijaintiin.
+            // Paikat p√§ivitet√§√§n edelliseen sijaintiin.
             paikat = vanhatPaikat;
             // Lippu nurin.
             palikkaIlmassa = false;
@@ -239,7 +239,7 @@ public class Txtris {
        * Vakiot ja muuttujat.
        *
        */
-      // Pelaajan syˆtt‰m‰t valinnat.
+      // Pelaajan sy√∂tt√§m√§t valinnat.
       final char VASEN = '<';
       final char OIKEA = '>';
       final char KIERRA = 'r';
@@ -251,19 +251,19 @@ public class Txtris {
       final String VALINNAT = "left (<), right (>), (r)otate, (d)rop or (q)uit?";
       final String HEIHEI = "Bye, see you soon.";
       
-      // Pelaajan tekem‰ valinta.
+      // Pelaajan tekem√§ valinta.
       char valinta;
       
       // Pelaajan pisteet.
       int pisteet = 0;
       
-      // P‰‰silmukan jatkamisehto.
+      // P√§√§silmukan jatkamisehto.
       boolean jatketaan = true;
       
       // Onko palikka ilmassa vai ei.
       boolean palikkaIlmassa = false;
       
-      // Lis‰tt‰vien pisteiden kerroin.
+      // Lis√§tt√§vien pisteiden kerroin.
       int kerroin = 0;
        
       // Tulostetaan tervehdysteksti.
@@ -277,10 +277,10 @@ public class Txtris {
       // Luodaan paikkataulukko palikalle.
       int[][] paikat = null;  
       
-      // P‰‰silmukka.
+      // P√§√§silmukka.
       do {
          /*
-          * Uuden palikan luominen ja sijoittaminen pelikent‰lle.
+          * Uuden palikan luominen ja sijoittaminen pelikent√§lle.
           *
           */
           
@@ -290,7 +290,7 @@ public class Txtris {
          // Tarkastellaan onko palikka ilmassa.
          if (tutkiPaikkataulukkoa (merkkitaulu, paikat, true)) 
             palikkaIlmassa = true;
-         // Lopetetaan pelaaminen ja heitet‰‰n hyv‰stit.
+         // Lopetetaan pelaaminen ja heitet√§√§n hyv√§stit.
          else {
             palikkaIlmassa = false;
             jatketaan = false;
@@ -299,53 +299,53 @@ public class Txtris {
             System.out.println(HEIHEI);
             break;
          }
-         // Poistetaan mahdolliset t‰ydet rivit ja alustetaan pisteiden kerroin.
+         // Poistetaan mahdolliset t√§ydet rivit ja alustetaan pisteiden kerroin.
          kerroin = HT2Apu.poistaRivit(merkkitaulu);
-         // Lis‰t‰‰n saadut pisteet.
+         // Lis√§t√§√§n saadut pisteet.
          pisteet += kerroin * 100;
          
          //Tulostetaan pistetieto.
          System.out.println(PISTEET + pisteet);
-         // Sijoitetaan palikka pelikentt‰‰n ja tulostetaan kentt‰.
+         // Sijoitetaan palikka pelikentt√§√§n ja tulostetaan kentt√§.
          piirraTaulukkoon(merkkitaulu, paikat, HT2Apu.PALIKKA);
          tulostaTaulukko(merkkitaulu);
 
          while (jatketaan && palikkaIlmassa) {
-            // Tulostetaan k‰ytt‰j‰lle annettavat valinnat.
+            // Tulostetaan k√§ytt√§j√§lle annettavat valinnat.
             System.out.println(VALINNAT);
             
-            // Luetaan k‰ytt‰j‰n valinta.
+            // Luetaan k√§ytt√§j√§n valinta.
             valinta = In.readChar();
             
-            // Katkaistaan silmukka jos k‰ytt‰j‰ tahtoo lopettaa pelin.
+            // Katkaistaan silmukka jos k√§ytt√§j√§ tahtoo lopettaa pelin.
             if (valinta == LOPETA) {
                // Tulostetaan pistetieto.
                System.out.println(PISTEET + pisteet);
-               // Tulostetaan loppun‰kym‰.
+               // Tulostetaan loppun√§kym√§.
                tulostaTaulukko(merkkitaulu);
-               // Hyv‰stell‰‰n pelaaja.
+               // Hyv√§stell√§√§n pelaaja.
                System.out.print(HEIHEI);
                // Lippu nurin.
                jatketaan = false;
                break;
             }
             /*
-             * Palikan siirt‰minen ja kiert‰minen.
+             * Palikan siirt√§minen ja kiert√§minen.
              *
              */  
-            // Pyyhit‰‰n palikka vanhasta paikastaan.
+            // Pyyhit√§√§n palikka vanhasta paikastaan.
             piirraTaulukkoon(merkkitaulu, paikat, HT2Apu.TAUSTA);
             
             if (valinta == VASEN) {
-               // Siirret‰‰n palikkaa vasemmalle metodin avulla.
+               // Siirret√§√§n palikkaa vasemmalle metodin avulla.
                paikat = siirraVasempaan(merkkitaulu, paikat);
             }
             if (valinta == OIKEA) {
-               // Siirret‰‰n palikkaa oikealle metodin avulla.
+               // Siirret√§√§n palikkaa oikealle metodin avulla.
                paikat = siirraOikeaan(merkkitaulu, paikat);
             }
             if (valinta == KIERRA) {
-               // Kierret‰‰n palikkaa metodin avulla.
+               // Kierret√§√§n palikkaa metodin avulla.
                paikat = kierraPalikkaa(merkkitaulu, paikat);
             }
             if (valinta == PUDOTA) {
@@ -354,10 +354,10 @@ public class Txtris {
                // Lippu nurin.
                palikkaIlmassa = false;
             }
-            // Yritet‰‰n siirt‰‰ palikkaa alasp‰in.
-            // Sis‰lt‰‰ tapaukset, joissa valinta muu kuin jokin annetuista.
+            // Yritet√§√§n siirt√§√§ palikkaa alasp√§in.
+            // Sis√§lt√§√§ tapaukset, joissa valinta muu kuin jokin annetuista.
             else if (koneenVuoro(merkkitaulu, paikat, HT2Apu.PALIKKA, pisteet))
-               // Lippu nurin, jos alasp‰insiirto ei onnistunut.
+               // Lippu nurin, jos alasp√§insiirto ei onnistunut.
                palikkaIlmassa = false;
             // Tulostetaan alas siirretty palikka.
             else {
@@ -379,7 +379,7 @@ public class Txtris {
 
       // Saatiin tasan yksi komentoriviparametri.
       if (args.length == 1) {
-         // Yritet‰‰n muuntaa komentoriviparametri int-tyyppiseksi siemenluvuksi.
+         // Yritet√§√§n muuntaa komentoriviparametri int-tyyppiseksi siemenluvuksi.
          try {
             siemen = Integer.parseInt(args[0]);
          }
@@ -395,13 +395,13 @@ public class Txtris {
       // Komentoriviparametri kunnossa.
       if (argsOK) {
 
-         // Luodaan palikoiden tyyppej‰ arpova olio ja asetetaan siihen viite.
+         // Luodaan palikoiden tyyppej√§ arpova olio ja asetetaan siihen viite.
          // Olion rakentimelle annetaan komentoriviparametrina saatu luku.
-         // (Ohjelmassa tulee k‰ytt‰‰ vain yht‰ HT2Apu-oliota, jotta palikoiden
-         // j‰rjestys olisi oikea.)
+         // (Ohjelmassa tulee k√§ytt√§√§ vain yht√§ HT2Apu-oliota, jotta palikoiden
+         // j√§rjestys olisi oikea.)
          HT2Apu apulainen = new HT2Apu(siemen);
 
-         // Pelataan peli‰.
+         // Pelataan peli√§.
          pelaaPelia(apulainen);
       }
       // Ohjeistetaan virheen tapahtuessa.
